@@ -9,12 +9,10 @@ function readMeTemplate(data) {
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
-
 ## Description
 
-This web application is a ${data.projectTitle}. * Insert Project Description Here *
+This web application is a ${data.projectTitle}. ${data.projectDescription}
 
-  Throughout the project I worked with various functions and programs in order to achieve proper navigation and functionality.I also used JQuerry in order to streamline my script.js file.I worked in html and js in order to complete this application.Starting code was provided by my bootcamp.
 ## Table of Contents
 
   - [Badges](#badges)
@@ -26,62 +24,84 @@ This web application is a ${data.projectTitle}. * Insert Project Description Her
 
 ## Installation
 
-This entire project was made in Visual Studio.We were provided starter code for the application from the UCSD Extended Studies Coding Bootcamp, which I built upon as I finished the application. 
+In order to install the propper programs necessary for this application, ${data.projectInstallation}
 
 ## Usage
 
-The final product looks like this:
+In order to use this program, ${data.projectUsage}
 
-<img src="/Assets/05-third-party-apis-homework-demo.gif">
+## How to Contribute
 
-  You can see the date is being displayed on the top of the page. If the user wishes to add something to their day planner, they can simply type what they want in the time slot and press the save button. This will save the user input into localstorage where they will remain even if the page is refreshed.
+If you created an application or package and would like other developers to contribute it, you can create a fork the corresponding GitHub Repo at https://github.com/${data.gitHubUsername}/. The repo name should be the same as the project title. For any other questions, feel free to reach out to me at ${data.userEmail}
 
-  Here is a link to the completed web application:
+## Tests
 
-  https://cjfeagin33.github.io/Calendar-Application/
+In order to test this program, ${data.projectTest}
 
-  ## How to Contribute
+## Credits
 
-  If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+${data.projectCredits}
 
-  ## Tests
+## License
 
-  Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-
-  ## Credits
-
-  This application was built with assistance from my peers and instructors within the UCSD Extended Studies Coding Bootcamp.
-
-  ## License
-
-  The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).`
+${data.projectLicense} is this project's license. For more information about licenses, please visit https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository`
 }
-  // TODO: Create an array of questions for user input
-  inquirer
+// TODO: Create an array of questions for user input
+inquirer
   .prompt([
-  {
-    type: 'input',
-  message: "What is your your project's title?",
-  name: 'projectTitle',
+    {
+      type: 'input',
+      message: "What is your your project's title?",
+      name: 'projectTitle',
     },
-  {
-    type: 'checkbox',
-  message: 'What languages do you know?',
-  name: 'stack',
-  choices: ['HTML', 'CSS', 'JavaScript', 'MySQL']
+    {
+      type: 'input',
+      message: "Write a description for your project.",
+      name: 'projectDescription',
     },
-  {
-    type: 'list',
-  message: 'What is your preferred method of communication?',
-  name: 'contact',
-  choices: ['email', 'phone', 'telekinesus'],
+    {
+      type: 'input',
+      message: "How do you install the necessary progams to run your application?",
+      name: 'projectInstallation',
     },
+    {
+      type: 'input',
+      message: "How do you use this program?",
+      name: 'projectUsage',
+    },
+    {
+      type: 'input',
+      message: "What is your GitHub Username?",
+      name: 'gitHubUsername',
+    },
+    {
+      type: 'input',
+      message: "What is your email address associated with this project?",
+      name: 'userEmail',
+    },
+    {
+      type: 'input',
+      message: "How do you test this program?",
+      name: 'projectTest',
+    },
+    {
+      type: 'input',
+      message: "To whom do you acredit this project?",
+      name: 'projectCredits',
+    },
+    {
+      type: 'list',
+      message: 'What license does this program use?',
+      name: 'projectLicense',
+      choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense'],
+    },
+
   ]).then(data => {
     let readMeGenerated = readMeTemplate(data)
     console.log(readMeGenerated)
 
     fs.writeFile('./dist/README.md', readMeGenerated, (err) =>
-      err ? console.log(err):console.log('Success!')
+      err ? console.log(err) : console.log('README.md successfully generated!')
     )
   })
 
