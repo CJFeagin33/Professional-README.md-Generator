@@ -1,8 +1,11 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+
+// function that is called after inquirer is answered. uses data from inquirer.
 function readMeTemplate(data) {
+  // return string of the desired README.md. Uses Template Literal in order to fill README.md with custom values.
   return `# ${data.projectTitle}
 
 ## Badges
@@ -46,7 +49,9 @@ ${data.projectCredits}
 
 ${data.projectLicense} is this project's license. For more information about licenses, please visit https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository`
 }
-// TODO: Create an array of questions for user input
+
+
+// Creates an array of questions for user input in order to populate the README.md template
 inquirer
   .prompt([
     {
@@ -96,20 +101,12 @@ inquirer
       choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense'],
     },
 
+    // then take the data from the inquirer, run it through the readMeTemplate function and let the newly creaded string be saved to the readMeGenerated variable. 
   ]).then(data => {
-    let readMeGenerated = readMeTemplate(data)
-    console.log(readMeGenerated)
+    let readMeGenerated = readMeTemplate(data);
 
+    // writes the file to the dist folder as a .md, using the readMeGenerated as its content.
     fs.writeFile('./dist/README.md', readMeGenerated, (err) =>
       err ? console.log(err) : console.log('README.md successfully generated!')
     )
   })
-
-//   // TODO: Create a function to write README file
-//   function writeToFile(fileName, data) { }
-
-// // TODO: Create a function to initialize app
-//   function init() { }
-
-// // Function call to initialize app
-//   init();
