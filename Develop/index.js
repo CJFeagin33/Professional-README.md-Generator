@@ -5,16 +5,49 @@ const fs = require('fs');
 
 // function that is called after inquirer is answered. uses data from inquirer.
 function readMeTemplate(data) {
+  // 'None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense'
+  if (data.projectLicense == 'Apache License 2.0') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+  } else if (data.projectLicense == 'GNU General Public License v3.0') {
+    licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+  } else if (data.projectLicense == 'MIT License') {
+    licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+  } else if (data.projectLicense == 'BSD 2-Clause "Simplified" License') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)';
+  } else if (data.projectLicense == 'BSD 3-Clause "New" or "Revised" License') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
+  } else if (data.projectLicense == 'Boost Software License 1.0') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
+  } else if (data.projectLicense == 'Creative Commons Zero v1.0 Universal') {
+    licenseBadge = '[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)';
+  } else if (data.projectLicense == 'Eclipse Public License 2.0') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)';
+  } else if (data.projectLicense == 'GNU Affero General Public License v3.0') {
+    licenseBadge = '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)';
+  } else if (data.projectLicense == 'GNU General Public License v2.0') {
+    licenseBadge = '[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)';
+  } else if (data.projectLicense == 'GNU Lesser General Public License v2.1') {
+    licenseBadge = '[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v2.1-blue.svg)](https://www.gnu.org/licenses/lgpl-2.1)';
+  } else if (data.projectLicense == 'Mozilla Public License 2.0') {
+    licenseBadge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+  } else if (data.projectLicense == 'The Unlicense') {
+    licenseBadge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
+  }
   // return string of the desired README.md. Uses Template Literal in order to fill README.md with custom values.
   return `# ${data.projectTitle}
 
 ## Badges
 
+${licenseBadge}
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+
+Click on the above license badge to be taken to the license link in your current browser!
 
 ## Description
 
 This web application is a ${data.projectTitle}. ${data.projectDescription}
+
+Here is an image of what the project looks like. <img src="./Assets/">
 
 ## Table of Contents
 
