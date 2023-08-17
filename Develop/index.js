@@ -48,7 +48,7 @@ Click on the above license badge to be taken to the license link in your current
 
 This web application is a ${data.projectTitle}. ${data.projectDescription}
 
-Here is an image of what the project looks like. <img src="./Assets/">
+Here is an image of what the project looks like. <img src="./Assets/TerminalAndReadmeScreenshot.png">
 
 ## Table of Contents
 
