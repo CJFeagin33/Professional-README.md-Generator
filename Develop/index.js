@@ -48,7 +48,7 @@ Click on the above license badge to be taken to the license link in your current
 
 This web application is a ${data.projectTitle}. ${data.projectDescription}
 
-Here is an image of what the project looks like. <img src=".Develop/Assets/TerminalAndReadmeScreenshot.png">
+Here is an image of what the project looks like. ![markdown logo](./TerminalAndReadmeScreenshot.png)
 
 ## Table of Contents
 
@@ -140,7 +140,7 @@ inquirer
     let readMeGenerated = readMeTemplate(data);
 
     // writes the file to the dist folder as a .md, using the readMeGenerated as its content.
-    fs.writeFile('./dist/README.md', readMeGenerated, (err) =>
+    fs.writeFile('./README.md', readMeGenerated, (err) =>
       err ? console.log(err) : console.log('README.md successfully generated!')
     )
   })
