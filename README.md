@@ -11,7 +11,7 @@ Click on the above license badge to be taken to the license link in your current
 
 This web application is a Professional-README.md-Generator. This project auto generates a custom README.md based on user input.
 
-Here is an image of what the project looks like. ![markdown logo](./TerminalAndReadmeScreenshot.png)
+Here is an image of what the project looks like: ![markdown logo](./TerminalAndReadmeScreenshot.png)
 
 ## Table of Contents
 
@@ -30,9 +30,11 @@ In order to install the propper programs necessary for this application, run npm
 
 In order to use this program, In order to use the program, run node index within the integrated terminal for the index.html file. Go through the user input to fill out a desirable README.md.
 
+Here is a link to a video of me using this program: https://drive.google.com/file/d/1abF1bp4vP2FNekvkwO9o-Q-4HoBYFH5W/view
+
 ## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can create a fork the corresponding GitHub Repo at https://github.com/CJFeagin33@gmail.com/. The repo name should be the same as the project title. For any other questions, feel free to reach out to me at cjfeagin33@gmail.com
+If you created an application or package and would like other developers to contribute it, you can create a fork the corresponding GitHub Repo at https://github.com/CJFeagin33/. The repo name should be the same as the project title. For any other questions, feel free to reach out to me at cjfeagin33@gmail.com
 
 ## Tests
 
